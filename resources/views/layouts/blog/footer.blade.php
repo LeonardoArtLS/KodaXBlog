@@ -1,13 +1,13 @@
-<footer class="footer bg-warning py-3">
-    <div class="container">
+<footer class="footer bg-purple">
+    <div class="container my-4">
         <div class="row">
-            <div class="col-md-6">
-                <p>&copy; 2024 Blog do grupo KodaX. Todos os direitos reservados.</p>
+            <div class="col-md-6 text-white d-flex align-items-center">
+                <p class="my-auto mx-auto">&copy; 2024 Blog do grupo KodaX. Todos os direitos reservados.</p>
             </div>
-            <div class="col-md-6 text-md-right">
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="/termos">Termos de Serviço</a></li>
-                    <li class="list-inline-item"><a href="/politica-de-privacidade">Política de Privacidade</a></li>
+            <div class="col-md-6 text-md-right d-flex align-items-center">
+                <ul class="list-inline my-auto mx-auto">
+                    <li class="list-inline-item text-white"><a class="text-decoration-none" href="/termos">Termos de Serviço</a></li>
+                    <li class="list-inline-item text-white"><a class="text-decoration-none" href="/politica-de-privacidade">Política de Privacidade</a></li>
                 </ul>
             </div>
         </div>
