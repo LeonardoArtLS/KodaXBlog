@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//o nome index colocado ali é o nome do metodo que vai ser chamado dentro da controller(pode ser qualquer nome)
+Route::get('/', [HomeController::class, "index"]);
+
+//Resource é para CRUD, é usado em areas restritas pois tem permissão para tudo
+// Route::resource("/rota", HomeController::class);
+
+// Route::get('/', function () {
+//     return view('blog/home');
+// });
