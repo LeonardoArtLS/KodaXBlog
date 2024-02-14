@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 //o nome index colocado ali é o nome do metodo que vai ser chamado dentro da controller(pode ser qualquer nome)
 Route::get('/', [HomeController::class, "index"]);
+Route::get('/artigos', [ArticlesController::class, "index"]);
+Route::get('/artigo/{id}/{permalink}', [ArticlesController::class, "detail"]);
 
 //Resource é para CRUD, é usado em areas restritas pois tem permissão para tudo
 // Route::resource("/rota", HomeController::class);

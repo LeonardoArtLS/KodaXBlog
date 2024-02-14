@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-purple">
 <div class="container-fluid">
-    <a class="navbar-brand text-white fw-semibold" href="#">KodaX</a>
+    <a class="navbar-brand text-white fw-bold" href="#">KodaX</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,7 +18,7 @@
     </ul>
     <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Buscar artigos" aria-label="Search">
-        <button class="btn btn-outline-success text-white fw-semibold" type="submit">Buscar</button>
+        <button class="btn btn-nav text-white fw-semibold" type="submit">Buscar</button>
     </form>
     </div>
 </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        return view("blog/home", ["articles" => Articles::inRandomOrder()->limit(3)->get()]);
+        //inRandomOrder pega aleatorios, orderBy pega de tanela e a ordem asc(Crescente) ou desc(Decrescente)
+        return view("blog/home", ["articles" => Articles::orderBy("id", "desc")->limit(3)->get()]);
     }
 }

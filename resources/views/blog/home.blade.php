@@ -33,9 +33,12 @@
         <div class="card">
             <img src="https://alkasoft.com.br/wp-content/uploads/2017/09/imagem125_2-700x321.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-            <h5 class="card-title text-purple fw-semibold">{{$article->title}}</h5>
-            <p class="card-text">{{$article->preview}}</p>
-            <a href="/artigo/{{$article->id}}" class="btn btn-purple d-flex justify-content-center">VER</a>
+                <h5 class="card-title text-purple fw-semibold">{{$article->title}}</h5>
+                <p class="card-text">{{substr($article->preview, 0, 100)}}...</p>
+            </div>
+            <div class="card-action p-3 d-flex justify-content-between align-items-center">
+                <small class="card-text text-purple">{{date("d/m/Y", strtotime($article->date))}}</small>
+                <a href="/artigo/{{$article->id}}/{{Illuminate\Support\Str::slug($article->title)}}" class="btn btn-purple">VER MAIS</a>
             </div>
         </div>
     </div>

@@ -7,9 +7,30 @@ body {
         flex: 1 0 auto;
     }
 
+    nav{
+        .nav-link,.btn-nav{
+        border-radius: 20px;
+            &:hover{
+            background: #f9f9f9;
+            color: #6D2BF1 !important;
+            }
+        }
+    }
+
     .footer {
         width: 100%;
         position: relative;
         bottom: 0;
+    }
+
+    .card{
+        .card-action{
+            padding: 0 20px 10px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .card-body{
+            min-height: 150px;
+        }
     }
 }
