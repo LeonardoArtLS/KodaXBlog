@@ -12,7 +12,7 @@
         <div class="container vh-100">
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col col-sm-12 col-md-6">
-                    <div class="card border-purple rounded">
+                    <div class="card border-light rounded">
                         <div class="card-header text-center bg-purple">
                             <h5 class="card-title text-white fw-bold rounded my-auto p-2 h5">LOGIN</h5>
                         </div>

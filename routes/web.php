@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\ArticlesAdmController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\ArticlesController;
@@ -33,5 +34,10 @@ Route::get('/artigo/{id}/{permalink}', [ArticlesController::class, "detail"]);
 //PAINEL DE ADMIN
 Route::view("/admin/login", "admin.login.form")->name("login.form");
 Route::post("/admin/auth", [LoginController::class, "auth"])->name("login.auth");
-Route::get("/admin/logout", [LoginController::class, "logout"]);
-Route::get("/admin", [DashboardController::class, "index"])->middleware("validaLogin");
+
+Route::middleware("validaLogin")->group(function(){
+    Route::get("/admin", [DashboardController::class, "index"]);
+    Route::resource("/admin/artigos", ArticlesAdmController::class);
+
+    Route::get("/admin/logout", [LoginController::class, "logout"]);
+});

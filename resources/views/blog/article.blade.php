@@ -4,7 +4,7 @@
 <div class="row mt-4">
     <div class="col-12">
         <h1 class="text-purple">
-            <span>{{date("d/m/Y", strtotime($article->date))}}</span>
+            <span class="text-light badge bg-purple">{{date("d/m/Y", strtotime($article->date))}}</span>
             {{$article->title}}
         </h1>
     </div>
