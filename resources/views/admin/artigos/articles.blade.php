@@ -7,7 +7,7 @@
         </div>
         <div class="col">
             <div class="d-flex justify-content-end">
-                <a href="{{"artigos.create"}}" class="btn btn-purple">ADICIONAR</a>
+                <a href="{{route("artigos.create")}}" class="btn btn-purple">ADICIONAR</a>
             </div>
         </div>
     </div>
@@ -39,8 +39,8 @@
                         <tr>
                             <td>{{$a->title}}</td>
                             <td>{{$a->author}}</td>
-                            <td>{{$a->date}}</td>
-                            <td>{{$a->image}}</td>
+                            <td>{{date("d/m/Y", strtotime($a->date))}}</td>
+                            <td><img src="/upload/{{$a->image}}" width="120px"></td>
                             <td>
                                 <a href="{{route("artigos.edit", $a->id)}}">Editar</a>
                                 {{-- a função preventDefault é para evitar que a função faça 2 ações quando o usuario der 2 cliques --}}
