@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Articles;
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class ArticlesAdmController extends Controller
 {
@@ -24,6 +26,12 @@ class ArticlesAdmController extends Controller
      */
     public function create()
     {
+        // if(! Gate::allows('deleta-artigo', 1)){
+        //     abort(401);
+        // }
+
+        $this->authorize("create", 1);
+
         return view("admin/artigos/create", [
             "categorias" => Categories::all()
         ]);
@@ -78,19 +86,30 @@ class ArticlesAdmController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $article = new Articles;
+        $article = Articles::find($id);
         $article->title = $request->title;
         $article->preview = $request->preview;
         $article->author = $request->author;
         $article->text = $request->text;
         $article->from_categories = $request->from_categories;
+
+        $imgAtual = $article->image;
         //upload
         if($request->hasFile("image") && $request->file("image")->isValid()){
+
+        //deletar imagem antiga se tiver
+            if(file_exists(public_path("upload/").$imgAtual)){
+
+                unlink(public_path("upload/").$imgAtual);
+            
+            }
+
             $name = strtotime("now").".".$request->image->extension();
             $request->image->move(public_path("upload"), $name);
             $article->image = $name;
         }
-        $article->findOrFail($id)->update($article->all());
+        $article->update();
+        return redirect("/admin/artigos")->with("success", "Registro atualizado com sucesso");
     }
 
     /**
@@ -98,7 +117,16 @@ class ArticlesAdmController extends Controller
      */
     public function destroy(string $id)
     {
-        Articles::findOrFail($id)->delete();
-        return redirect("/admin/artigos")->with("success", "Registro deletado com sucesso.");
+        $article = Articles::find($id);
+        
+        //verificar se existe uma imagem para deletar
+        if(file_exists(public_path("upload/").$article->image)){
+
+            unlink(public_path("upload/").$article->image);
+        }
+
+        $article->delete();
+        return redirect("/admin/artigos")
+        ->with("success", "Registro deletado com sucesso.");
     }
 }

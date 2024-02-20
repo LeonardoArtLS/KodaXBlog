@@ -7,8 +7,8 @@
     </div>
 </div>
 <form action="{{route("artigos.update", $article->id)}}" method="POST" enctype="multipart/form-data">
-    @csrf
     @method("PUT")
+    @csrf
     <div class="row">
         <div class="col col-sm-12 col-md-4 mb-3">
             <label for="title">Título</label>
